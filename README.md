@@ -1,6 +1,6 @@
-# Azure AD App Registrations Toolkit
+# Entra ID App Registrations Toolkit
 
-This repository contains two PowerShell scripts designed to manage Azure Active Directory (Azure AD) app registrations. The first script, `Get-AppRegStatus.ps1`, generates reports on the status of app registrations, including credential expiration. The second script, `CreateAADApps.ps1`, creates random app registrations in Azure AD for testing purposes.
+This repository contains two PowerShell scripts designed to manage Entra ID/Azure Active Directory (Azure AD) app registrations. The first script, `Get-AppRegStatus.ps1`, generates reports on the status of app registrations, including credential expiration. The second script, `CreateAADApps.ps1`, creates random app registrations in Azure AD for testing purposes.
 
 ## Prerequisites
 
