@@ -1,47 +1,60 @@
-# Microsoft Entra ID App Registrations Report Generator
+# Azure AD App Registrations Toolkit
 
-This PowerShell script is designed to automate the generation of reports for Microsoft Entra ID app registrations. It utilizes Microsoft Graph PowerShell modules to fetch applications, their credentials, and owners, then generates a CSV report detailing each application's information including credential expiration. Additionally, the script manages log and CSV files by retaining only the most recent ones based on specified criteria.
+This repository contains two PowerShell scripts designed to manage Azure Active Directory (Azure AD) app registrations. The first script, `Get-AppRegStatus.ps1`, generates reports on the status of app registrations, including credential expiration. The second script, `CreateAADApps.ps1`, creates random app registrations in Azure AD for testing purposes.
 
 ## Prerequisites
 
-Before running this script, ensure you have the following:
+Before using these scripts, ensure you have the following:
 - PowerShell 5.1 or higher.
-- Microsoft Graph PowerShell SDK. The script will attempt to install these modules if they are not present:
-  - `Microsoft.Graph`
-  - `Microsoft.Graph.Beta`
+- Appropriate permissions in Azure AD to create and manage app registrations.
+- Microsoft Graph PowerShell SDK for `Get-AppRegStatus.ps1`.
+- AzureAD PowerShell Module for `CreateAADApps.ps1`.
 
 ## Installation
 
-1. Clone this repository or download the script to your local machine.
+1. Clone this repository or download the scripts to your local machine.
 2. Open PowerShell as an Administrator.
-3. Navigate to the directory where the script is saved.
-4. If it's the first time running the script or if you haven't installed the Microsoft Graph PowerShell modules, the script will attempt to install them for you.
+3. Navigate to the directory where the scripts are saved.
 
-## Configuration
+## Scripts
 
-Before running the script, you might want to adjust the following variables within the script to suit your environment:
-- `$DaysToKeepCsv`: The number of days to keep CSV reports (default is 30).
-- `$MaxLogFiles`: The maximum number of log files to retain (default is 30).
+### 1. Get-AppRegStatus.ps1
 
-## Usage
+This script generates a CSV report detailing each Azure AD application's information, including credential expiration.
 
-To run the script:
-1. Open PowerShell.
-2. Navigate to the script's directory.
-3. Execute the script by typing `.\[ScriptName].ps1` (replace `[ScriptName]` with the actual script filename).
-4. The script will connect to Microsoft Graph, fetch applications, and generate a CSV report in the same directory.
+#### Configuration
+
+- Adjust variables such as `$DaysToKeepCsv` and `$MaxLogFiles` as needed to fit your retention policies.
+
+#### Usage
+
+- Run `.\Get-AppRegStatus.ps1` in PowerShell.
+- The script will install and import necessary Microsoft Graph PowerShell modules, connect to Microsoft Graph, and generate the report.
+
+### 2. CreateAADApps.ps1
+
+This script creates random Azure AD app registrations, useful for testing environments.
+
+#### Setup
+
+- Update the `$yourFQDN` variable in the script with your domain.
+- The script will install the AzureAD PowerShell Module if it's not already installed.
+
+#### Running the Script
+
+- Execute `.\CreateAADApps.ps1` in PowerShell.
+- The script will create app registrations with random names and log the details.
 
 ## Features
 
-- **Log Management**: Automatically generates log files for each script execution and retains only the most recent logs as specified.
-- **CSV Report Generation**: Creates a detailed CSV report of app registrations, including application names, credential names, types (Client Secret or Certificate), expiration status, and owner information.
-- **Automatic Cleanup**: Removes old CSV reports and log files based on specified retention policies.
+- **Log and CSV Management**: `Get-AppRegStatus.ps1` manages log and CSV files based on specified retention policies.
+- **Random App Registrations**: `CreateAADApps.ps1` generates random app registrations with unique names and client secrets.
+- **Detailed Reporting**: `Get-AppRegStatus.ps1` provides detailed reports on app registration statuses, including expirations.
 
 ## Contributing
 
-We welcome contributions! If you have suggestions for improvements or bug fixes, please feel free to fork the repository and submit a pull request.
+Contributions are welcome! If you have suggestions for improvements or bug fixes, please fork the repository and submit a pull request.
 
 ## License
 
 This project is licensed under the GNU General Public License (GPL). See the [LICENSE](LICENSE) or [COPYING](COPYING) file in the repository for the full license text.
-
