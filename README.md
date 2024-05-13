@@ -7,6 +7,10 @@ This repository contains two PowerShell scripts designed to manage Entra ID/Azur
 Before using these scripts, ensure you have the following:
 - PowerShell 5.1 or higher.
 - Appropriate permissions in Azure AD to create and manage app registrations.
+- Install-Module -Name Microsoft.Graph -Force -AllowClobber
+- Install-Module -Name Microsoft.Graph.Beta -Force -AllowClobber
+- Import-Module -Name Microsoft.Graph
+- Import-Module -Name Microsoft.Graph.Beta
 - Microsoft Graph PowerShell SDK for `Get-AppRegStatus.ps1`.
 - AzureAD PowerShell Module for `CreateAADApps.ps1`.
 
